@@ -10,11 +10,11 @@ exports.up = function(knex, Promise) {
       tbl.text('description', 'longtext').notNullable();
       tbl.string('brand').notNullable();
       tbl.string('model');
+      tbl.string('label');
       tbl.float('dailyPrice').notNullable();
       tbl.float('weeklyPrice').notNullable();
       tbl.boolean('available').notNullable();
       tbl.integer('renter')
-         .notNullable()
          .unsigned()
          .references('userId')
          .inTable('users');
