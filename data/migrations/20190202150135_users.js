@@ -1,14 +1,13 @@
 exports.up = function(knex, Promise) {
    return knex.schema.createTable('users', tbl => {
-      tbl.increments();
-
+      tbl.increments('userId');
       tbl.string('username')
          .unqiue()
          .notNullable();
       tbl.string('firstName').notNullable();
       tbl.string('lastName').notNullable();
       tbl.string('email').notNullable();
-      tbl.integer('phone');
+      tbl.integer('phone', 10);
    });
 };
 
