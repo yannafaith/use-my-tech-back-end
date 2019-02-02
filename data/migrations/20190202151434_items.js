@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
          .references('userId')
          .inTable('users');
       tbl.string('title').notNullable();
-      tbl.text('description', longtext).notNullable();
+      tbl.text('description', 'longtext').notNullable();
       tbl.string('brand').notNullable();
       tbl.string('model');
       tbl.float('dailyPrice').notNullable();
