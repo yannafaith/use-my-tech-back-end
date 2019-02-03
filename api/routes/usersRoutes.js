@@ -4,6 +4,7 @@ const route = express.Router();
 const db = require('../../data/dbConfig');
 
 route.get('/', async (req, res) => {
+   console.log('req headers', req.headers);
    try {
       const users = await db('users');
       res.status(200).json(users);
