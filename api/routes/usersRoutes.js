@@ -27,4 +27,20 @@ route.get('/:id', async (req, res) => {
    }
 });
 
+route.get('/:id/items', async (req, res) => {
+   const { id } = req.params;
+   const user = await db('users')
+      .where({ userId: id })
+      .first();
+   const items = await db('items').where({ owner: id });
+
+   try {
+      !user
+         ? res.status(404).json({ error: 'User does not exist' })
+         : res.status(202).json(items);
+   } catch (err) {
+      res.status(500).json({ error: `Unable to fetch the user's items` });
+   }
+});
+
 module.exports = route;
