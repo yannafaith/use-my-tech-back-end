@@ -28,4 +28,15 @@ route.get('/:id', async (req, res) => {
    }
 });
 
+route.post('/', async (req, res) => {
+   const creds = req.body;
+
+   try {
+      await db('items').insert(creds);
+      res.status(201).json({ message: 'A new item has been added' });
+   } catch (err) {
+      res.status(500).json({ error: 'Unable to add a new item' });
+   }
+});
+
 module.exports = route;
