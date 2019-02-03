@@ -19,4 +19,27 @@ route.post('/register', async (req, res) => {
    }
 });
 
+route.post('/login', async (req, res) => {
+   const creds = req.body;
+
+   try {
+      const user = await db('users')
+         .where({ username: creds.username })
+         .first();
+
+      if (user && bcrypt.compareSync(creds.password, user.password)) {
+         const token = authHelper.generateToken(user);
+
+         res.status(202).json({
+            message: `Welcome back ${user.firstName} ${user.lastName}`,
+            token,
+         });
+      } else {
+         res.status(401).json({ message: `Unauthorized credentials` });
+      }
+   } catch (err) {
+      res.status(500).json({ message: `Unable to login` });
+   }
+});
+
 module.exports = route;
