@@ -78,4 +78,24 @@ route.put('/:id', async (req, res) => {
    }
 });
 
+route.delete('/:id', async (req, res) => {
+   const { id } = req.params;
+
+   try {
+      const user = await db('users')
+         .where({ userId: id })
+         .first();
+
+      !user
+         ? res.status(404).json({ error: 'User does not exist' })
+         : await db('users')
+              .where({ userId: id })
+              .delete();
+
+      res.status(202).json({ message: 'The user has been deleted.' });
+   } catch (err) {
+      res.status(500).json({ error: 'Unable to delete the user' });
+   }
+});
+
 module.exports = route;
