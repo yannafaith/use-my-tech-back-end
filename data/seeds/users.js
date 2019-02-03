@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs');
+
 exports.seed = function(knex, Promise) {
    // Deletes ALL existing entries
    return knex('users')
@@ -8,7 +10,7 @@ exports.seed = function(knex, Promise) {
             {
                userId: 1,
                username: 'tommy',
-               password: 'password',
+               password: bcrypt.hashSync('password', 11),
                firstName: 'Tommy',
                lastName: 'Carr',
                email: 'tommy@gmail.com',
@@ -17,7 +19,7 @@ exports.seed = function(knex, Promise) {
             {
                userId: 2,
                username: 'linda',
-               password: 'password',
+               password: bcrypt.hashSync('password', 11),
                firstName: 'Linda',
                lastName: 'La',
                email: 'linda@gmail.com',
@@ -26,7 +28,7 @@ exports.seed = function(knex, Promise) {
             {
                userId: 3,
                username: 'jimmy',
-               password: 'password',
+               password: bcrypt.hashSync('password', 11),
                firstName: 'Jimmy',
                lastName: 'Butler',
                email: 'jimmy@gmail.com',
@@ -35,7 +37,7 @@ exports.seed = function(knex, Promise) {
             {
                userId: 4,
                username: 'nate',
-               password: 'password',
+               password: bcrypt.hashSync('password', 11),
                firstName: 'Nate',
                lastName: 'Boyette',
                email: 'nate@gmail.com',
@@ -44,7 +46,7 @@ exports.seed = function(knex, Promise) {
             {
                userId: 5,
                username: 'yanna',
-               password: 'password',
+               password: bcrypt.hashSync('password', 11),
                firstName: 'Kayanna',
                lastName: 'Chandler',
                email: 'yanna@gmail.com',
