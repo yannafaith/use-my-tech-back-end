@@ -4,9 +4,12 @@ exports.up = function(knex, Promise) {
       tbl.string('username')
          .unique()
          .notNullable();
+      tbl.string('password').notNullable();
       tbl.string('firstName').notNullable();
       tbl.string('lastName').notNullable();
-      tbl.string('email').notNullable();
+      tbl.string('email')
+         .unique()
+         .notNullable();
       tbl.integer('phone', 10);
    });
 };

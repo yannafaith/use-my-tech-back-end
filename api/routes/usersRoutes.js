@@ -46,17 +46,6 @@ route.get('/:id/items', async (req, res) => {
    }
 });
 
-route.post('/', async (req, res) => {
-   const creds = req.body;
-
-   try {
-      await db('users').insert(creds);
-      res.status(201).json({ message: 'New user created' });
-   } catch (err) {
-      res.status(500).json({ error: `Unable to create a new user` });
-   }
-});
-
 route.put('/:id', async (req, res) => {
    const { id } = req.params;
    const changes = req.body;
