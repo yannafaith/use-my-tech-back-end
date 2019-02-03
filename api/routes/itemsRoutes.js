@@ -39,4 +39,26 @@ route.post('/', async (req, res) => {
    }
 });
 
+route.put('/:id', async (req, res) => {
+   const { id } = req.params;
+   const changes = req.body;
+
+   try {
+      const item = await db('items')
+         .where({ itemId: id })
+         .first();
+
+      !item
+         ? res.status(404).json({ error: 'Item does not exist' })
+         : await db('items')
+              .where({ itemId: id })
+              .update(changes);
+      res.status(202).json({
+         message: `item: '${item.title}' has been updated`,
+      });
+   } catch (err) {
+      res.status(500).json({ error: 'Unable to update the item' });
+   }
+});
+
 module.exports = route;
