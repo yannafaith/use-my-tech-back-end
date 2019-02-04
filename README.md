@@ -242,3 +242,169 @@ ___
 }
 ```
 ___
+
+
+# ITEMS ROUTES
+
+## **GET ITEMS**
+
+*Method Url:* `/api/items`
+
+
+*HTTP method:* **[GET]**
+
+
+#### Response
+
+##### 200 (OK)
+
+```
+[
+    {
+        "itemId": 1,
+        "owner": 1,
+        "title": "Portable Speaker",
+        "description": "Great speaker for a gathering or party",
+        "brand": "Bose",
+        "model": "5000XL",
+        "label": "Speaker",
+        "dailyPrice": 100,
+        "weeklyPrice": 450,
+        "available": 1,
+        "renter": null
+    },
+    {
+        "itemId": 2,
+        "owner": 2,
+        "title": "Projector",
+        "description": "Awesome display for sports, movies and video games",
+        "brand": "Samsung",
+        "model": "H3000",
+        "label": "Display",
+        "dailyPrice": 50,
+        "weeklyPrice": 180,
+        "available": 1,
+        "renter": null
+    }
+]
+```
+___
+
+## **GET ITEM BY ID**
+
+*Method Url:* `/api/items/:id`
+
+
+*HTTP method:* **[GET]**
+
+
+#### Response
+
+##### 200 (OK)
+
+```
+    {
+        "itemId": 2,
+        "owner": 2,
+        "title": "Projector",
+        "description": "Awesome display for sports, movies and video games",
+        "brand": "Samsung",
+        "model": "H3000",
+        "label": "Display",
+        "dailyPrice": 50,
+        "weeklyPrice": 180,
+        "available": 1,
+        "renter": null
+    }
+```
+___
+
+## **ADD AN ITEM**
+
+*Method Url:* `/api/items`
+
+
+*HTTP method:* **[POST]**
+
+#### Body
+
+| name           | type    | required |
+| -------------- | ------  | -------- | 
+| `itemId`       | Integer | Yes      |
+| `owner`        | Integer | Yes      |
+| `title`        | String  | Yes      | 
+| `description`  | String  | Yes      | 
+| `model`        | String  | Yes      |                          
+| `label`        | String  | No       |                          
+| `dailyPrice`   | String  | Yes      |                          
+| `weeklyPrice`  | String  | Yes      |   
+| `available`    | Boolean | Yes      |   
+| `renter`       | Integer | Yes      |   
+
+
+*example:*
+
+```
+{
+    "itemId": 1,
+    "owner": 1,
+    "title": "Portable Speaker",
+    "description": "Great speaker for a gathering or party",
+    "brand": "Bose",
+    "model": "5000XL",
+    "label": "Speaker",
+    "dailyPrice": 80,
+    "weeklyPrice": 300,
+    "available": 1,
+    "renter": null
+}
+```
+
+#### Response
+
+##### 201 (Created)
+
+```
+{
+    "message": "item: 'Portable Speaker' has been updated"
+}
+```
+___
+
+## **UPDATE ITEM**
+
+*Method Url:* `/api/items/:id`
+
+
+*HTTP method:* **[PATCH]**
+
+
+#### Response
+
+##### 202 (Accepted)
+
+```
+{
+    "message": "item: 'Portable Speaker' has been updated"
+}
+```
+___
+
+## **DELETE USER**
+
+*Method Url:* `/api/items/:id`
+
+
+*HTTP method:* **[DELETE]**
+
+
+#### Response
+
+##### 202 (Accepted)
+
+```
+{
+    "message": "The item has been deleted."
+}
+```
+___
