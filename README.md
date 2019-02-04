@@ -7,4 +7,6 @@ https://use-my-tech-stuff.herokuapp.com
 
 /api/items
 
+/api/auth
+
 ### Documentation with route details coming soon on Monday.
