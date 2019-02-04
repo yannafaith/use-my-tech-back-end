@@ -4,6 +4,7 @@
    "description": "Tommy Huynh",
    "main": "index.js",
    "dependencies": {
+      "apidoc": "^0.17.7",
       "bcryptjs": "^2.4.3",
       "cloudinary": "^1.13.2",
       "cors": "^2.8.5",
