@@ -7,18 +7,11 @@ https://use-my-tech-stuff.herokuapp.com
 # AUTH ROUTES
 
 ## **REGISTER**
-### **Registers a user**
 
 *Method Url:* `/api/auth/register`
 
 
 *HTTP method:* **[POST]**
-
-#### Headers
-
-| name           | type   | required | description              |
-| -------------- | ------ | -------- | ------------------------ |
-| `Content-Type` | String | Yes      | Must be application/json |
 
 #### Body
 
@@ -46,7 +39,7 @@ https://use-my-tech-stuff.herokuapp.com
 
 #### Response
 
-##### 200 (OK)
+##### 201 (Created)
 >If you successfully register a user the endpoint will return an HTTP response with a status code `200` and a body as below.
 ```
 {
@@ -54,18 +47,10 @@ https://use-my-tech-stuff.herokuapp.com
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Implbm55IiwicGFzc3dvcmQiOiIkMmEkMTEkME5UTXFlcGF1YmQ0eXU2Lk9obFZsLlU3NGNXUVdWMVBwd0d2WnVGNldBYXB3cDlCTkNMd0MiLCJmaXJzdE5hbWUiOiJKZW5ueSIsImxhc3ROYW1lIjoiTGkiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBob25lIjo0MTU2MjY3Njg4LCJpYXQiOjE1NDkxNzA1MjMsImV4cCI6MTU0OTE3NDEyM30.jOxH0YlAABmP_W3BaF3TowhCKHP9hFkLcyw-P-dQE_M"
 }
 ```
-##### 400 (Bad Request)
->If you send in invalid fields, the endpoint will return an HTTP response with a status code `400` and a body as below.
-```
-{
-  "message": "There was a problem with your request."
-}
-```
 
 ____
 
 ## **LOGIN**
-### **Logs a user in**
 
 *Method Url:* `/api/auth/login`
 
@@ -82,7 +67,7 @@ ____
 
 ```
 {
-  username: "matt04",
+  username: "matt@gmail.com",
   password: "password"
 }
 ```
@@ -99,3 +84,161 @@ ____
 ```
 ___
 
+
+
+
+# USERS ROUTES
+
+## **GET USERS**
+
+*Method Url:* `/api/users`
+
+
+*HTTP method:* **[GET]**
+
+
+#### Response
+
+##### 200 (OK)
+
+```
+[
+    {
+        "userId": 1,
+        "username": "tommy",
+        "password": "$2a$11$LQImXlHE7dt0RSD9gjuvBecaZMMKYuW.vGcWsi3YumGU25PwLiFM2",
+        "firstname": "Tommy",
+        "lastname": "Carr",
+        "email": "tommy@gmail.com",
+        "phone": 5104082587
+    },
+    {
+        "userId": 2,
+        "username": "linda",
+        "password": "$2a$11$d6mtGCQJBekPkqHvyog7GuaE82AfjcXzytL3ELtR8Dc.ENBNu7i/a",
+        "firstname": "Linda",
+        "lastname": "La",
+        "email": "linda@gmail.com",
+        "phone": 5102382227
+    },
+    {
+        "userId": 3,
+        "username": "jimmy",
+        "password": "$2a$11$zXVFMlzrFfu9aYoJFOJCs.94KBfBvt3/BODdYaMWCj4ozs1EHj/Vy",
+        "firstname": "Jimmy",
+        "lastname": "Butler",
+        "email": "jimmy@gmail.com",
+        "phone": 7072272555
+    }
+]
+```
+___
+
+## **GET USER BY ID**
+
+*Method Url:* `/api/users/:id`
+
+
+*HTTP method:* **[GET]**
+
+
+#### Response
+
+##### 200 (OK)
+
+```
+    {
+        "userId": 2,
+        "username": "linda",
+        "password": "$2a$11$d6mtGCQJBekPkqHvyog7GuaE82AfjcXzytL3ELtR8Dc.ENBNu7i/a",
+        "firstname": "Linda",
+        "lastname": "La",
+        "email": "linda@gmail.com",
+        "phone": 5102382227
+    }
+```
+___
+
+
+## **GET ITEMS BY USERID**
+
+*Method Url:* `/api/users/:id/items`
+
+
+*HTTP method:* **[GET]**
+
+
+#### Response
+
+##### 200 (OK)
+
+```
+[
+    {
+        "itemId": 1,
+        "owner": 1,
+        "title": "Portable Speaker",
+        "description": "Great speaker for a gathering or party",
+        "brand": "Bose",
+        "model": "5000XL",
+        "label": "Speaker",
+        "dailyPrice": 100,
+        "weeklyPrice": 450,
+        "available": 1,
+        "renter": null
+    },
+    {
+        "itemId": 6,
+        "owner": 1,
+        "title": "32 inch Curve Monitor",
+        "description": "Dominate your enemies with this awesome monitor",
+        "brand": "Samsung",
+        "model": "32xl",
+        "label": "Monitor",
+        "dailyPrice": 60,
+        "weeklyPrice": 250,
+        "available": 0,
+        "renter": 3
+    }
+]
+```
+___
+
+
+## **UPDATE USER**
+
+*Method Url:* `/api/users/:id`
+
+
+*HTTP method:* **[PATCH]**
+
+
+#### Response
+
+##### 202 (Accepted)
+
+```
+{
+    "message": "User: matt04 has been updated"
+}
+```
+___
+
+## **DELETE USER**
+
+*Method Url:* `/api/users/:id`
+
+
+*HTTP method:* **[DELETE]**
+
+
+#### Response
+
+##### 202 (Accepted)
+
+```
+{
+    "message": "The user has been deleted."
+}
+```
+___
