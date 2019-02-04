@@ -39,7 +39,7 @@ route.post('/', async (req, res) => {
    }
 });
 
-route.put('/:id', async (req, res) => {
+route.patch('/:id', async (req, res) => {
    const { id } = req.params;
    const changes = req.body;
 

@@ -24,14 +24,14 @@ route.post('/login', async (req, res) => {
 
    try {
       const user = await db('users')
-         .where({ username: creds.username })
+         .where({ email: creds.email })
          .first();
 
       if (user && bcrypt.compareSync(creds.password, user.password)) {
          const token = authHelper.generateToken(user);
 
          res.status(202).json({
-            message: `Welcome back ${user.firstName} ${user.lastName}`,
+            message: `Welcome back ${user.firstname} ${user.lastname}`,
             token,
          });
       } else {
