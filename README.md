@@ -389,7 +389,7 @@ ___
 ```
 ___
 
-## **DELETE USER**
+## **DELETE ITEM**
 
 *Method Url:* `/api/items/:id`
 
@@ -404,6 +404,25 @@ ___
 ```
 {
     "message": "The item has been deleted."
+}
+```
+___
+
+## **UPLOAD ITEM IMAGE**
+
+*Method Url:* `/api/items/upload`
+
+
+*HTTP method:* **[POST]**
+
+
+#### Response
+
+##### 200 (Accepted)
+
+```
+{
+    "message": "Your image has been uploaded successfully to cloudinary."
 }
 ```
 ___
