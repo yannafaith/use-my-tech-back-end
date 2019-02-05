@@ -1,7 +1,10 @@
 const express = require('express');
 const route = express.Router();
+const { cloudinaryConfig, uploader } = require('../../config/cloudinaryConfig');
+const { multerUploads, dataUri } = require('../../middleware/multer');
 
 const db = require('../../data/dbConfig');
+cloudinaryConfig(route);
 
 route.get('/', async (req, res) => {
    try {
@@ -78,6 +81,29 @@ route.delete('/:id', async (req, res) => {
       res.status(202).json({ message: 'The item has been deleted.' });
    } catch (err) {
       res.status(500).json({ error: 'Unable to delete the item' });
+   }
+});
+
+// uploads image to Cloudinary and returns an image url
+route.post('/upload', multerUploads, (req, res) => {
+   if (req.file) {
+      const file = dataUri(req).content;
+      return uploader.upload(file).then(result => {
+         const image = result.url;
+         return res
+            .status(200)
+            .json({
+               message:
+                  'Your image has been uploaded successfully to cloudinary',
+               image: image,
+            })
+            .catch(err =>
+               res.status(400).json({
+                  message: 'Something went wrong while processing your request',
+                  err: err,
+               })
+            );
+      });
    }
 });
 
