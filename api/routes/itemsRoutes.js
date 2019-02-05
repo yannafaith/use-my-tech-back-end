@@ -84,7 +84,7 @@ route.delete('/:id', async (req, res) => {
    }
 });
 
-// uploads image to Cloudinary and returns an image url
+// uploads image to Cloudinary and returns a message and image url
 route.post('/upload', multerUploads, (req, res) => {
    if (req.file) {
       const file = dataUri(req).content;
