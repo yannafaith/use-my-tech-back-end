@@ -35,8 +35,12 @@ route.post('/', async (req, res) => {
    const creds = req.body;
 
    try {
-      await db('items').insert(creds);
-      res.status(201).json({ message: 'A new item has been added', creds });
+      const itemId = await db('items').insert(creds);
+
+      res.status(201).json({
+         message: 'A new item has been added',
+         itemId,
+      });
    } catch (err) {
       res.status(500).json({ error: 'Unable to add a new item' });
    }
@@ -58,6 +62,7 @@ route.patch('/:id', async (req, res) => {
               .update(changes);
       res.status(202).json({
          message: `item: '${item.title}' has been updated`,
+         changes,
       });
    } catch (err) {
       res.status(500).json({ error: 'Unable to update the item' });
