@@ -1,7 +1,6 @@
 const express = require('express');
 const middelware = require('../config/middleware');
 const server = express();
-
 const usersRoutes = require('./routes/usersRoutes');
 const itemsRoutes = require('./routes/itemsRoutes');
 const authRoutes = require('./routes/authRoutes');
