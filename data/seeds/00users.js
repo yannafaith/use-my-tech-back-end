@@ -8,7 +8,6 @@ exports.seed = function(knex, Promise) {
          // Inserts seed entries
          return knex('users').insert([
             {
-               userId: 1,
                username: 'tommy',
                password: bcrypt.hashSync('password', 11),
                firstname: 'Tommy',
@@ -17,7 +16,6 @@ exports.seed = function(knex, Promise) {
                phone: 5104082587,
             },
             {
-               userId: 2,
                username: 'linda',
                password: bcrypt.hashSync('password', 11),
                firstname: 'Linda',
@@ -26,7 +24,6 @@ exports.seed = function(knex, Promise) {
                phone: 5102382227,
             },
             {
-               userId: 3,
                username: 'jimmy',
                password: bcrypt.hashSync('password', 11),
                firstname: 'Jimmy',
@@ -35,7 +32,6 @@ exports.seed = function(knex, Promise) {
                phone: 7072272555,
             },
             {
-               userId: 4,
                username: 'nate',
                password: bcrypt.hashSync('password', 11),
                firstname: 'Nate',
@@ -44,7 +40,6 @@ exports.seed = function(knex, Promise) {
                phone: 5102332587,
             },
             {
-               userId: 5,
                username: 'yanna',
                password: bcrypt.hashSync('password', 11),
                firstname: 'Kayanna',

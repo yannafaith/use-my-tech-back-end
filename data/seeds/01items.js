@@ -6,7 +6,6 @@ exports.seed = function(knex, Promise) {
          // Inserts seed entries
          return knex('items').insert([
             {
-               itemId: 1,
                owner: 1,
                title: 'Portable Speaker',
                description: 'Great speaker for a gathering or party',
@@ -19,7 +18,6 @@ exports.seed = function(knex, Promise) {
                renter: null,
             },
             {
-               itemId: 2,
                owner: 2,
                title: 'Projector',
                description:
@@ -33,7 +31,6 @@ exports.seed = function(knex, Promise) {
                renter: null,
             },
             {
-               itemId: 3,
                owner: 3,
                title: 'HD Professional Grade Camera',
                description: 'Great camera for your professional shots',
@@ -46,7 +43,6 @@ exports.seed = function(knex, Promise) {
                renter: null,
             },
             {
-               itemId: 4,
                owner: 4,
                title: 'Karaoke Machine',
                description: 'Great for a karaoke party',
@@ -59,7 +55,6 @@ exports.seed = function(knex, Promise) {
                renter: null,
             },
             {
-               itemId: 5,
                owner: 5,
                title: 'Mini Portable Speaker',
                description: 'Great little speaker for a picnic or fishing trip',
@@ -72,7 +67,6 @@ exports.seed = function(knex, Promise) {
                renter: null,
             },
             {
-               itemId: 6,
                owner: 1,
                title: '32 inch Curve Monitor',
                description: `Dominate your enemies with this awesome monitor`,
