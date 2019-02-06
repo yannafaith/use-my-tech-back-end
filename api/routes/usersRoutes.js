@@ -4,9 +4,8 @@ const route = express.Router();
 const db = require('../../data/dbConfig');
 
 route.get('/', async (req, res) => {
-   console.log('req headers', req.headers);
    try {
-      const users = await db('users');
+      const users = await db('users').orderBy('userId');
       res.status(200).json(users);
    } catch (err) {
       res.status(500).json({ message: 'Could not retrieve the list of users' });
@@ -36,7 +35,9 @@ route.get('/:id/items', async (req, res) => {
       const user = await db('users')
          .where({ userId: id })
          .first();
-      const items = await db('items').where({ owner: id });
+      const items = await db('items')
+         .where({ owner: id })
+         .orderBy('itemId');
 
       !user
          ? res.status(404).json({ error: 'User does not exist' })
