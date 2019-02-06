@@ -85,7 +85,7 @@ route.delete('/:id', async (req, res) => {
               .where({ itemId: id })
               .delete();
 
-      res.status(202).json({ message: 'The item has been deleted.' });
+      res.status(202).json({ message: 'The item has been deleted.' }, item);
    } catch (err) {
       res.status(500).json({ error: 'Unable to delete the item' });
    }
