@@ -17,7 +17,7 @@ route.post('/register', async (req, res) => {
       res.status(201).json({
          message: `Registration successful`,
          token,
-         userId: user.userId,
+         user,
       });
    } catch (err) {
       res.status(500).json({ message: `Unable to register` });
