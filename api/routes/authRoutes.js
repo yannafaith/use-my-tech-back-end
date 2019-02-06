@@ -24,7 +24,7 @@ route.post('/login', async (req, res) => {
 
    try {
       const user = await db('users')
-         .where({ email: creds.email })
+         .where({ username: creds.username })
          .first();
 
       if (user && bcrypt.compareSync(creds.password, user.password)) {
