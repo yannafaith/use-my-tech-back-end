@@ -16,6 +16,7 @@ route.post('/register', async (req, res) => {
          .returning('userId');
       const token = authHelper.generateToken(creds);
 
+      console.log('user', user);
       res.status(201).json({
          message: `Registration successful`,
          token,
