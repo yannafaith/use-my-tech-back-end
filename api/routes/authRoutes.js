@@ -5,23 +5,23 @@ const db = require('../../data/dbConfig');
 
 const authHelper = require('../../common/authHelpers');
 
-route.post('/register', async (req, res) => {
+route.post('/register', (req, res) => {
    const creds = req.body;
    const hash = bcrypt.hashSync(creds.password, 11);
    creds.password = hash;
 
-   try {
-      const user = await db('users').insert(creds);
-      const token = authHelper.generateToken(creds);
-      console.log('user', user);
-      res.status(201).json({
-         message: `Registration successful`,
-         token,
-         user,
-      });
-   } catch (err) {
-      res.status(500).json({ message: `Unable to register` });
-   }
+   db('users')
+      .insert(creds)
+      .then(res => {
+         const token = authHelper.generateToken(creds);
+         console.log('user', user);
+         res.status(201).json({
+            message: `Registration successful`,
+            token,
+            user,
+         });
+      })
+      .catch(res.status(500).json({ message: `Unable to register` }));
 });
 
 route.post('/login', async (req, res) => {
