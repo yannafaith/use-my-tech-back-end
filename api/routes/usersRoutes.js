@@ -1,5 +1,6 @@
 const express = require('express');
 const route = express.Router();
+const protected = require('../../common/authHelpers').protected;
 
 const db = require('../../data/dbConfig');
 
@@ -47,7 +48,7 @@ route.get('/:id/items', async (req, res) => {
    }
 });
 
-route.patch('/:id', async (req, res) => {
+route.patch('/:id', protected, async (req, res) => {
    const { id } = req.params;
    const changes = req.body;
 
@@ -69,7 +70,7 @@ route.patch('/:id', async (req, res) => {
    }
 });
 
-route.delete('/:id', async (req, res) => {
+route.delete('/:id', protected, async (req, res) => {
    const { id } = req.params;
 
    try {

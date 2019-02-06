@@ -79,7 +79,6 @@ route.delete('/:id', protected, async (req, res) => {
          .where({ itemId: id })
          .first();
 
-      console.log('item', item);
       !item
          ? res.status(404).json({ error: 'Item does not exist' })
          : await db('items')
