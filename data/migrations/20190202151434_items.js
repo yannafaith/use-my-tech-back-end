@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
    return knex.schema.createTable('items', tbl => {
-      tbl.increments('itemId');
+      tbl.serial('itemId');
       tbl.integer('owner')
          .notNullable()
          .unsigned()
