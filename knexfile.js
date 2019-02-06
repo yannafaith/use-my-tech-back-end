@@ -7,10 +7,10 @@ module.exports = {
       client: 'pg',
       connection: 'postgres://localhost/5000',
       migrations: {
-         directory: './db/migrations',
+         directory: './data/migrations',
       },
       seeds: {
-         directory: './db/seeds/dev',
+         directory: './data/seeds/dev',
       },
       useNullAsDefault: true,
    },
@@ -23,10 +23,10 @@ module.exports = {
          max: 10,
       },
       migrations: {
-         directory: './db/migrations',
+         directory: './data/migrations',
       },
       seeds: {
-         directory: './db/seeds/dev',
+         directory: './data/seeds/dev',
       },
       useNullAsDefault: true,
    },
