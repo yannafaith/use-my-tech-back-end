@@ -2,6 +2,7 @@ const express = require('express');
 const route = express.Router();
 const { cloudinaryConfig, uploader } = require('../../config/cloudinaryConfig');
 const { multerUploads, dataUri } = require('../../middleware/multer');
+const protected = require('../../common/authHelpers').protected;
 
 const db = require('../../data/dbConfig');
 cloudinaryConfig(route);
@@ -31,7 +32,7 @@ route.get('/:id', async (req, res) => {
    }
 });
 
-route.post('/', async (req, res) => {
+route.post('/', protected, async (req, res) => {
    const creds = req.body;
 
    try {
@@ -47,7 +48,7 @@ route.post('/', async (req, res) => {
    }
 });
 
-route.patch('/:id', async (req, res) => {
+route.patch('/:id', protected, async (req, res) => {
    const { id } = req.params;
    const changes = req.body;
 
@@ -70,7 +71,7 @@ route.patch('/:id', async (req, res) => {
    }
 });
 
-route.delete('/:id', async (req, res) => {
+route.delete('/:id', protected, async (req, res) => {
    const { id } = req.params;
 
    try {
