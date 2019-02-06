@@ -35,7 +35,6 @@ route.post('/', async (req, res) => {
    const creds = req.body;
 
    try {
-      // const itemId =
       await db('items').insert(creds);
       const items = await db('items');
 
@@ -44,6 +43,9 @@ route.post('/', async (req, res) => {
          items,
       });
    } catch (err) {
+      console.error(err.stack);
+      console.error(err);
+      console.error(err.message);
       res.status(500).json({ error: 'Unable to add a new item' });
    }
 });
