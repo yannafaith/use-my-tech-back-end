@@ -10,7 +10,7 @@ module.exports = {
          directory: './data/migrations',
       },
       seeds: {
-         directory: './data/seeds/dev',
+         directory: './data/seeds',
       },
       useNullAsDefault: true,
    },
@@ -26,7 +26,7 @@ module.exports = {
          directory: './data/migrations',
       },
       seeds: {
-         directory: './data/seeds/dev',
+         directory: './data/seeds',
       },
       useNullAsDefault: true,
    },
