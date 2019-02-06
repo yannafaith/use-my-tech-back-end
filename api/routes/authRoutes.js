@@ -33,7 +33,7 @@ route.post('/login', async (req, res) => {
          res.status(202).json({
             message: `Welcome back ${user.firstname} ${user.lastname}`,
             token,
-            userId,
+            userId: user.userId,
          });
       } else {
          res.status(401).json({ message: `Unauthorized credentials` });
