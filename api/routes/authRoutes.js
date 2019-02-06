@@ -13,10 +13,9 @@ route.post('/register', async (req, res) => {
    try {
       const user = await db('users')
          .insert(creds)
-         .returning('*')
-         .toString();
+         .returning('userId');
       const token = authHelper.generateToken(creds);
-      console.log('user', user);
+
       res.status(201).json({
          message: `Registration successful`,
          token,
