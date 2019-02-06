@@ -23,7 +23,9 @@ route.post('/register', async (req, res) => {
       console.error(err.stack);
       console.error(err);
       console.error(err.message);
-      res.status(500).json({ message: `Unable to register` });
+
+      // res.status(500).json({ message: `Unable to register` });
+      res.status(500).json({ message: err });
    }
 });
 
