@@ -13,15 +13,14 @@ route.post('/register', async (req, res) => {
    try {
       const user = await db('users')
          .insert(creds)
-         .returning('userId')
-         .first();
+         .returning('userId');
       const token = authHelper.generateToken(creds);
 
       console.log('user', user);
       res.status(201).json({
          message: `Registration successful`,
          token,
-         user,
+         userId: user[0],
       });
    } catch (err) {
       res.status(500).json({ message: `Unable to register` });
