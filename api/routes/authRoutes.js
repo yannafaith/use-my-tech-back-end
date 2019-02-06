@@ -11,7 +11,10 @@ route.post('/register', async (req, res) => {
    creds.password = hash;
 
    try {
-      const user = await db('users').insert(creds);
+      const user = await db('users')
+         .insert(creds)
+         .returning('*')
+         .toString();
       const token = authHelper.generateToken(creds);
       console.log('user', user);
       res.status(201).json({
