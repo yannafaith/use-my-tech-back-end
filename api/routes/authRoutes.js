@@ -11,9 +11,14 @@ route.post('/register', async (req, res) => {
    creds.password = hash;
 
    try {
-      await db('users').insert(creds);
+      const user = await db('users').insert(creds);
       const token = authHelper.generateToken(creds);
-      res.status(201).json({ message: `Registration successful`, token });
+      console.log('user', user);
+      res.status(201).json({
+         message: `Registration successful`,
+         token,
+         userId: user,
+      });
    } catch (err) {
       res.status(500).json({ message: `Unable to register` });
    }
