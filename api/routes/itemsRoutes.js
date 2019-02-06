@@ -46,7 +46,7 @@ route.post('/', async (req, res) => {
       console.error(err.stack);
       console.error(err);
       console.error(err.message);
-      res.status(500).json({ error: 'Unable to add a new item' });
+      res.status(500).json({ error: err });
    }
 });
 
