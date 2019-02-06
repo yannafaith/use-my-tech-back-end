@@ -35,11 +35,13 @@ route.post('/', async (req, res) => {
    const creds = req.body;
 
    try {
-      const itemId = await db('items').insert(creds);
+      // const itemId =
+      await db('items').insert(creds);
+      const items = await db('items');
 
       res.status(201).json({
          message: 'A new item has been added',
-         itemId,
+         items,
       });
    } catch (err) {
       res.status(500).json({ error: 'Unable to add a new item' });
