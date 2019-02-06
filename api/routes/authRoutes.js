@@ -14,11 +14,10 @@ route.post('/register', (req, res) => {
       .insert(creds)
       .then(res => {
          const token = authHelper.generateToken(creds);
-         console.log('user', user);
          res.status(201).json({
             message: `Registration successful`,
             token,
-            user,
+            response: res,
          });
       })
       .catch(res.status(500).json({ message: `Unable to register` }));
