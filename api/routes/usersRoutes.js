@@ -53,14 +53,12 @@ route.patch('/:id', protected, async (req, res) => {
    const { id } = req.params;
    const changes = req.body;
 
-   if (changes.password.length) {
-      hash = bcrypt.hashSync(changes.password, 12);
-      changes.password = hash;
-   } else {
-      changes.password = changes.password;
-   }
-
    try {
+      if (changes.password.length) {
+         hash = bcrypt.hashSync(changes.password, 12);
+         changes.password = hash;
+      }
+
       const user = await db('users')
          .where({ userId: id })
          .first();
