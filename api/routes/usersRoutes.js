@@ -1,6 +1,7 @@
 const express = require('express');
 const route = express.Router();
 const protected = require('../../common/authHelpers').protected;
+const bcrypt = require('bcryptjs');
 
 const db = require('../../data/dbConfig');
 
@@ -51,6 +52,11 @@ route.get('/:id/items', async (req, res) => {
 route.patch('/:id', protected, async (req, res) => {
    const { id } = req.params;
    const changes = req.body;
+
+   if (changes.password.length) {
+      hash = bcrypt.hashSync(changes.password, 12)
+      changes.password = hash
+   }
 
    try {
       const user = await db('users')
