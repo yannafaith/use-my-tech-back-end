@@ -18,9 +18,8 @@ exports.up = function(knex, Promise) {
       tbl.integer('renter')
          .unsigned()
          .references('userId')
-         .inTable('users');
-
-      tbl.integer('renter').defaultTo(null)
+         .inTable('users')
+         .defaultTo(null)
    });
 };
 
