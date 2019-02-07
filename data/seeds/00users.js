@@ -63,7 +63,7 @@ exports.seed = function(knex, Promise) {
                thumbnail: faker.image.avatar()
             },
             {
-               username: faker.internet.username(),
+               username: faker.internet.userName(),
                password: bcrypt.hashSync('password', 11),
                firstname: faker.name.firstName(),
                lastname: faker.name.lastName(),
@@ -72,7 +72,7 @@ exports.seed = function(knex, Promise) {
                thumbnail: faker.image.avatar()
             },
             {
-               username: faker.internet.username(),
+               username: faker.internet.userName(),
                password: bcrypt.hashSync('password', 11),
                firstname: faker.name.firstName(),
                lastname: faker.name.lastName(),
@@ -81,7 +81,7 @@ exports.seed = function(knex, Promise) {
                thumbnail: faker.image.avatar()
             },
             {
-               username: faker.internet.username(),
+               username: faker.internet.userName(),
                password: bcrypt.hashSync('password', 11),
                firstname: faker.name.firstName(),
                lastname: faker.name.lastName(),
@@ -90,7 +90,7 @@ exports.seed = function(knex, Promise) {
                thumbnail: faker.image.avatar()
             },
             {
-               username: faker.internet.username(),
+               username: faker.internet.userName(),
                password: bcrypt.hashSync('password', 11),
                firstname: faker.name.firstName(),
                lastname: faker.name.lastName(),
@@ -99,7 +99,7 @@ exports.seed = function(knex, Promise) {
                thumbnail: faker.image.avatar()
             },
             {
-               username: faker.internet.username(),
+               username: faker.internet.userName(),
                password: bcrypt.hashSync('password', 11),
                firstname: faker.name.firstName(),
                lastname: faker.name.lastName(),
@@ -108,7 +108,7 @@ exports.seed = function(knex, Promise) {
                thumbnail: faker.image.avatar()
             },
             {
-               username: faker.internet.username(),
+               username: faker.internet.userName(),
                password: bcrypt.hashSync('password', 11),
                firstname: faker.name.firstName(),
                lastname: faker.name.lastName(),
@@ -117,7 +117,7 @@ exports.seed = function(knex, Promise) {
                thumbnail: faker.image.avatar()
             },
             {
-               username: faker.internet.username(),
+               username: faker.internet.userName(),
                password: bcrypt.hashSync('password', 11),
                firstname: faker.name.firstName(),
                lastname: faker.name.lastName(),
