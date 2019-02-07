@@ -54,8 +54,10 @@ route.patch('/:id', protected, async (req, res) => {
    const changes = req.body;
 
    if (changes.password.length) {
-      hash = bcrypt.hashSync(changes.password, 12)
-      changes.password = hash
+      hash = bcrypt.hashSync(changes.password, 12);
+      changes.password = hash;
+   } else {
+      changes = changes;
    }
 
    try {
