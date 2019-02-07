@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const faker = require('faker')
 
 exports.seed = function(knex, Promise) {
    // Deletes ALL existing entries
@@ -14,6 +15,7 @@ exports.seed = function(knex, Promise) {
                lastname: 'Carr',
                email: 'tommy@gmail.com',
                phone: 5104082587,
+               thumbnail: faker.image.avatar()
             },
             {
                username: 'linda',
@@ -22,6 +24,7 @@ exports.seed = function(knex, Promise) {
                lastname: 'La',
                email: 'linda@gmail.com',
                phone: 5102382227,
+               thumbnail: faker.image.avatar()
             },
             {
                username: 'jimmy',
@@ -30,6 +33,7 @@ exports.seed = function(knex, Promise) {
                lastname: 'Butler',
                email: 'jimmy@gmail.com',
                phone: 7072272555,
+               thumbnail: faker.image.avatar()
             },
             {
                username: 'nate',
@@ -38,6 +42,7 @@ exports.seed = function(knex, Promise) {
                lastname: 'Boyette',
                email: 'nate@gmail.com',
                phone: 5102332587,
+               thumbnail: faker.image.avatar()
             },
             {
                username: 'yanna',
@@ -46,6 +51,16 @@ exports.seed = function(knex, Promise) {
                lastname: 'Chandler',
                email: 'yanna@gmail.com',
                phone: 4152335576,
+               thumbnail: faker.image.avatar()
+            },
+            {
+               username: 'kelly',
+               password: bcrypt.hashSync('password', 11),
+               firstname: 'Kelly',
+               lastname: 'Jones',
+               email: 'kelly@gmail.com',
+               phone: 4152335576,
+               thumbnail: faker.image.avatar()
             },
          ]);
       });

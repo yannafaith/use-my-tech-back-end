@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
       tbl.string('brand').notNullable();
       tbl.string('model');
       tbl.string('label');
+      tbl.string('imgUrl', 500)
       tbl.float('dailyPrice').notNullable();
       tbl.float('weeklyPrice').notNullable();
       tbl.boolean('available').notNullable();
@@ -18,6 +19,8 @@ exports.up = function(knex, Promise) {
          .unsigned()
          .references('userId')
          .inTable('users');
+
+      tbl.integer('renter').defaultTo(null)
    });
 };
 
