@@ -1,6 +1,31 @@
+# Use My Tech Stuff - Lambda School Build Week Project
+
+Lambda School has a build week every 5 weeks where students from differnt parts of the cirriculum form a team and work on a project together. We had 4 days to work together and build the application.
+
+- The students in the first 5 weeks of Lambda will work on building out a landing page. 
+- The students who are 10 weeks into Lambda will build the Front End of the application using React. 
+- The students who are 15 weeks in, which is me for this project, will work on building out the Back End using Node.js and Express.
+
+## The Project
+
+Use My Tech stuff is an application that allows users to post their tech items in the application and rent it out to other users. It is similar to AirBnB but for tech items instead.
+
 ## Server is live on:
 
 https://use-my-tech-stuff.herokuapp.com
+
+## Dependencies
+
+- [Node.js](https://nodejs.org/) - Back end JavaScript runtime
+- [BCryptJS](https://www.npmjs.com/package/bcryptjs) - Module to hash passwords
+- [cors](https://www.npmjs.com/package/cors) - package for providing a Express middleware that can be used to enable CORS
+- [expressjs](https://expressjs.com/) - Node.js framework
+- [json web token](https://www.npmjs.com/package/jsonwebtoken) - Implements JSON web tokens
+- [knex.js](https://knexjs.org/) - SQL query builder
+- [sqlite3](https://www.sqlite.org/index.html) - Library that implements SQL database engine
+- [Cloudinary](https://www.npmjs.com/package/cloudinary) - Library to upload and store images in the cloud
+- [Multer](https://www.npmjs.com/package/multer) - Middleware for handling multipart/form-data, which is primarily used for uploading files
+
 
 # AUTH ROUTES
 
