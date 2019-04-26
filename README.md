@@ -23,6 +23,7 @@ https://use-my-tech-stuff.herokuapp.com
 - [json web token](https://www.npmjs.com/package/jsonwebtoken) - Implements JSON web tokens
 - [knex.js](https://knexjs.org/) - SQL query builder
 - [sqlite3](https://www.sqlite.org/index.html) - Library that implements SQL database engine
+- [pg](https://www.npmjs.com/package/pg) - Non-blocking PostgreSQL client for Node.js.
 - [Cloudinary](https://www.npmjs.com/package/cloudinary) - Library to upload and store images in the cloud
 - [Multer](https://www.npmjs.com/package/multer) - Middleware for handling multipart/form-data, which is primarily used for uploading files
 
